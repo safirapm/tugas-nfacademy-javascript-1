@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--Font Family-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="styles.css">
+    <h2>
+        <center>Menghitung Luas Poligon</center>
+    </h2>
+
+    <div class="container">
+        <div class="kotak-luas">
+            <h3>Luas Persegi Panjang</h3>
+            <img src="images/rectangle.jpg" />
+
+
+            <div class="fill-value">
+                <p>Panjang persegi panjang</p>
+                <input type="number" id="panjangPP"> cm
+
+                <p>Lebar Persegi Panjang</p>
+                <input type="number" id="lebarPP"> cm
+            </div>
+
+            <p id="hasilPP"></p>
+            <input class="confirm-button" type="button" onclick="PersegiPanjang()" value="Hitung Luas">
+        </div>
+
+        <div class="kotak-luas">
+            <h3>Luas Bujur Sangkar</h3>
+            <img src="images/square.jpg" />
+            <div class="fill-value">
+                <p>Sisi bujur sangkar</p>
+                <input type="number" id="sisiBS"> cm
+            </div>
+
+            <p id="hasilBS"></p>
+            <input class="confirm-button" type="button" onclick="BujurSangkar()" value="Hitung Luas">
+        </div>
+
+        <div class="kotak-luas">
+            <h3>Luas Segitiga</h3>
+            <img src="images/triangle.png" />
+
+
+            <div class="fill-value">
+                <p>Alas segitiga</p>
+                <input type="number" id="alasSGT"> cm
+
+                <p>Tinggi Segitiga</p>
+                <input type="number" id="tinggiSGT"> cm
+            </div>
+
+            <p id="hasilSGT"></p>
+            <input class="confirm-button" type="button" onclick="Segitiga()" value="Hitung Luas">
+        </div>
+    </div>
+</head>
+
+<body>
+
+    <script>
+        // Menggunakan Function untuk kalkulasi hasil luas
+        // Luas persegi panjang
+        function PersegiPanjang() {
+            const panjangPP = document.getElementById("panjangPP").value; // Input value dari panjang persegi panjang
+            const lebarPP = document.getElementById("lebarPP").value; // Input value dari lebar persegi panjang
+            const luasPP = panjangPP * lebarPP; // Luas persegi panjang berdasarkan input yang telah dimasukkan
+
+            // Pengkondisian
+            // Jika terdapat value (angka) yang di-input, maka akan menunjukkan rumus luas berdasarkan value yang telah di-input.
+            if (panjangPP !== "" && lebarPP !== "") {
+                document.getElementById("hasilPP").innerHTML =
+                    "<p style='margin-bottom:4px;'>Luas persegi panjang adalah</p>" + "<span style='color:#21471bff; font-weight:bold;'>" + panjangPP + " x " + lebarPP + " = " + luasPP + " cm<br/></span>";
+            }
+
+            // Jika value dalam form tidak diisi, maka akan diberi sebuah alert untuk mengisi angka.
+            if (panjangPP === "" || lebarPP === "") {
+                alert("Mohon isi kotak dengan angka.")
+            }
+        }
+
+        function BujurSangkar() {
+            const sisiBS = document.getElementById("sisiBS").value; // Input value dari sisi bujur sangkar
+            const luasBS = sisiBS * sisiBS; // Luas bujur sangkar berdasarkan input yang telah dimasukkan
+
+            // Pengkondisian
+            // Jika terdapat value (angka) yang di-input, maka akan menunjukkan rumus luas berdasarkan value yang telah di-input.
+            if (sisiBS !== "") {
+                document.getElementById("hasilBS").innerHTML =
+                    "<p style='margin-bottom:4px;'>Luas bujur sangkar adalah</p>" + "<span style='color:#21471bff; font-weight:bold;'>" + sisiBS + " x " + sisiBS + " = " + luasBS + " cm<br/></span>";
+
+            } else {
+                alert("Mohon isi kotak dengan angka.")
+            }
+        }
+
+        // Luas segitiga
+        function Segitiga() {
+            const alasSGT = document.getElementById("alasSGT").value; // Input value dari alas segitiga
+            const tinggiSGT = document.getElementById("tinggiSGT").value; // Input value dari tinggi segitiga
+            const luasSGT = 0.5 * alasSGT * tinggiSGT; // Luas segitiga berdasarkan input yang telah dimasukkan
+
+            // Pengkondisian
+            // Jika terdapat value (angka) yang di-input, maka akan menunjukkan rumus luas berdasarkan value yang telah di-input.
+            if (alasSGT !== "" && tinggiSGT !== "") {
+                document.getElementById("hasilSGT").innerHTML =
+                    "<p style='margin-bottom:4px;'>Luas segitiga adalah</p>" + "<span style='color:#21471bff; font-weight:bold;'>" + 0.5 + " x " + alasSGT + " x " + tinggiSGT + " = " + luasSGT + " cm<br/></span>";
+            }
+
+            // Jika value dalam form tidak diisi, maka akan diberi sebuah alert untuk mengisi angka.
+            if (alasSGT === "" || tinggiSGT === "") {
+                alert("Mohon isi kotak dengan angka.")
+            }
+        }
+
+    </script>
+</body>
+
+</html>
